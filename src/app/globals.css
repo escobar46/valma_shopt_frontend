@@ -1,0 +1,236 @@
+@import "tailwindcss";
+
+/* ==========================================================================
+   VALMA — Cinematic Mediterranean Editorial
+   Design tokens. Single source of truth.
+   ========================================================================== */
+
+@theme {
+  /* Color — warm, earthy, editorial */
+  --color-ivory: #f4efe8;
+  --color-bone: #e8dfd3;
+  --color-champagne: #d9c5a7;
+  --color-wine: #5a1f2a;
+  --color-chocolate: #3b2a20;
+  --color-espresso: #20160f;
+  --color-ink: #0e0e0d;
+  --color-mist: #cbc1b3;
+
+  /* Semantic */
+  --color-bg: var(--color-ivory);
+  --color-fg: var(--color-chocolate);
+  --color-accent: var(--color-wine);
+  --color-muted: var(--color-mist);
+
+  /* Typography — Fraunces (display, variable opsz) + Geist (sans) */
+  --font-display: var(--font-fraunces), "Times New Roman", serif;
+  --font-sans: var(--font-geist), "Helvetica Neue", system-ui, sans-serif;
+
+  /* Container & spacing rhythm */
+  --container-page: 1440px;
+  --container-narrow: 880px;
+
+  /* Motion — slow, considered, never bouncy */
+  --ease-editorial: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-cinematic: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================================================
+   Base
+   ========================================================================== */
+
+@layer base {
+  html,
+  body {
+    background: var(--color-bg);
+    color: var(--color-fg);
+    font-family: var(--font-sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Fraunces optical sizing — large for display, modest for body */
+  .font-display {
+    font-family: var(--font-display);
+    font-variation-settings: "opsz" 144, "SOFT" 50, "WONK" 0;
+    font-feature-settings: "ss01";
+    letter-spacing: -0.025em;
+  }
+
+  .font-display-italic {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-variation-settings: "opsz" 144, "SOFT" 100, "WONK" 1;
+  }
+
+  ::selection {
+    background: var(--color-chocolate);
+    color: var(--color-ivory);
+  }
+
+  /* Hide native scrollbar on horizontal scroll containers but keep functionality */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+}
+
+/* ==========================================================================
+   Atmosphere — film grain texture for cinematic feel
+   ========================================================================== */
+
+.grain {
+  position: relative;
+  isolation: isolate;
+}
+.grain::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  mix-blend-mode: overlay;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0 0 0 0.6 0'/></filter><rect width='100%25' height='100%25' filter='url(%23n)'/></svg>");
+  z-index: 1;
+}
+
+/* Hairline divider — editorial */
+.hairline {
+  height: 1px;
+  background: currentColor;
+  opacity: 0.15;
+}
+
+/* ==========================================================================
+   Marquee
+   ========================================================================== */
+
+@keyframes marquee {
+  0% { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
+}
+.animate-marquee {
+  animation: marquee 38s linear infinite;
+}
+
+/* ==========================================================================
+   Reveal — used by initial homepage stagger via plain CSS
+   ========================================================================== */
+
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 24px, 0);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+    filter: blur(0);
+  }
+}
+.rise {
+  animation: rise 1100ms var(--ease-cinematic) both;
+}
+
+/* ==========================================================================
+   Buttons
+   ========================================================================== */
+
+.btn {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  font-family: var(--font-sans);
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 0.95rem 1.6rem;
+  border: 1px solid currentColor;
+  cursor: pointer;
+  overflow: hidden;
+  transition:
+    color 600ms var(--ease-editorial),
+    border-color 600ms var(--ease-editorial);
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: currentColor;
+  transform: translateY(101%);
+  transition: transform 600ms var(--ease-editorial);
+  z-index: -1;
+}
+
+.btn:hover::before {
+  transform: translateY(0);
+}
+
+.btn-fill-ink:hover {
+  color: var(--color-ivory);
+}
+.btn-fill-ivory:hover {
+  color: var(--color-chocolate);
+}
+
+/* Eyebrow — small uppercase label */
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 0.68rem;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Product card image swap — pure CSS for performance
+   ========================================================================== */
+
+.card-media {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+}
+.card-media img,
+.card-media .card-img {
+  transition: transform 1400ms var(--ease-cinematic), opacity 700ms var(--ease-editorial);
+}
+.card-media .card-img-secondary {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+}
+.card-media:hover .card-img-primary {
+  opacity: 0;
+}
+.card-media:hover .card-img-secondary {
+  opacity: 1;
+  transform: scale(1.04);
+}
+
+/* ==========================================================================
+   Utilities
+   ========================================================================== */
+
+.section-pad {
+  padding-block: clamp(4rem, 9vw, 9rem);
+}
+
+.section-pad-tight {
+  padding-block: clamp(3rem, 6vw, 6rem);
+}
+
+.container-page {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: clamp(1.25rem, 4vw, 3rem);
+}

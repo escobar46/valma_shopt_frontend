@@ -6,11 +6,9 @@ import { useCart } from "@/lib/cart-store";
 import { cn } from "@/lib/utils";
 
 const links = [
-  { href: "/shop", label: "Shop" },
-  { href: "/shop/bodys", label: "Bodys" },
-  { href: "/shop/camisetas", label: "Camisetas" },
-  { href: "/edits/riviera", label: "El Edit" },
-  { href: "/about", label: "Universo" },
+  { href: "/shop", label: "Tienda" },
+  { href: "/#historia", label: "Historia" },
+  { href: "/#contacto", label: "Contacto" },
 ];
 
 export function Navigation() {
@@ -31,15 +29,14 @@ export function Navigation() {
       className={cn(
         "sticky top-0 z-40 transition-[background,backdrop-filter,border] duration-700",
         scrolled
-          ? "bg-[color-mix(in_oklab,var(--color-ivory)_82%,transparent)] backdrop-blur-md border-b border-chocolate/10"
-          : "bg-transparent border-b border-transparent",
+          ? "bg-[color-mix(in_oklab,var(--color-ivory)_88%,transparent)] backdrop-blur-md border-b border-chocolate/10"
+          : "bg-ivory border-b border-transparent",
       )}
-      style={{ ["--ease" as string]: "var(--ease-editorial)" }}
     >
-      <div className="container-page flex items-center justify-between gap-6 py-5">
+      <div className="container-page flex items-center justify-between gap-6 py-4 lg:py-5">
         {/* Left — primary nav */}
-        <nav aria-label="Principal" className="hidden lg:flex items-center gap-7 flex-1">
-          {links.slice(0, 3).map((l) => (
+        <nav aria-label="Principal" className="hidden lg:flex items-center gap-8 flex-1">
+          {links.map((l) => (
             <Link
               key={l.href}
               href={l.href}
@@ -88,19 +85,17 @@ export function Navigation() {
           VALMA
         </Link>
 
-        {/* Right — secondary */}
-        <nav aria-label="Cuenta" className="flex items-center gap-5 flex-1 justify-end">
-          <div className="hidden lg:flex items-center gap-7">
-            {links.slice(3).map((l) => (
-              <Link
-                key={l.href}
-                href={l.href}
-                className="eyebrow text-chocolate hover:text-wine transition-colors duration-500"
-              >
-                {l.label}
-              </Link>
-            ))}
-          </div>
+        {/* Right — actions */}
+        <div className="flex items-center gap-4 flex-1 justify-end">
+          <a
+            href="https://wa.me/573203903221"
+            target="_blank"
+            rel="noreferrer"
+            aria-label="WhatsApp"
+            className="hidden sm:inline-flex p-1.5 hover:opacity-60 transition-opacity"
+          >
+            <WhatsAppIcon />
+          </a>
           <button
             type="button"
             aria-label="Buscar"
@@ -115,11 +110,11 @@ export function Navigation() {
             className="relative inline-flex items-center gap-2 p-1.5 hover:opacity-60 transition-opacity"
           >
             <BagIcon />
-            <span className="text-[0.7rem] tabular-nums tracking-wider min-w-[1ch] text-left">
+            <span className="text-[0.72rem] tabular-nums tracking-wider min-w-[1ch] text-left">
               ({count})
             </span>
           </button>
-        </nav>
+        </div>
       </div>
 
       {/* Mobile sheet */}
@@ -143,10 +138,7 @@ export function Navigation() {
             </Link>
           ))}
           <div className="hairline mt-4 mb-4 bg-chocolate" />
-          <a
-            href="https://wa.me/573203903221"
-            className="eyebrow text-chocolate"
-          >
+          <a href="https://wa.me/573203903221" className="eyebrow text-chocolate">
             WhatsApp · +57 320 390 3221
           </a>
         </div>
@@ -169,6 +161,15 @@ function BagIcon() {
     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
       <path d="M5 7h14l-1.2 12.3a2 2 0 0 1-2 1.7H8.2a2 2 0 0 1-2-1.7L5 7Z" />
       <path d="M9 7V5a3 3 0 0 1 6 0v2" />
+    </svg>
+  );
+}
+
+function WhatsAppIcon() {
+  return (
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.2">
+      <path d="M3 21l1.65-4.5A8 8 0 1 1 7.5 19.35L3 21Z" />
+      <path d="M9 10c.5 2 2 3.5 4 4 .8.2 1.4.1 1.9-.5.3-.3.4-.6.5-1.1" strokeLinecap="round" />
     </svg>
   );
 }

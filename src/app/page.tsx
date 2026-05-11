@@ -1,9 +1,9 @@
 import { Hero } from "@/components/home/Hero";
 import { BrandStatement } from "@/components/home/BrandStatement";
-import { FeaturedCategories } from "@/components/home/FeaturedCategories";
 import { TrendingGrid } from "@/components/home/TrendingGrid";
-import { EditorialBlock } from "@/components/home/EditorialBlock";
-import { BrandValues } from "@/components/home/BrandValues";
+import { CherriesSpotlight } from "@/components/home/CherriesSpotlight";
+import { Promises } from "@/components/home/Promises";
+import { BrandStory } from "@/components/home/BrandStory";
 import { Newsletter } from "@/components/home/Newsletter";
 
 export default function HomePage() {
@@ -11,10 +11,10 @@ export default function HomePage() {
     <>
       <Hero />
       <BrandStatement />
-      <FeaturedCategories />
       <TrendingGrid />
-      <EditorialBlock />
-      <BrandValues />
+      <CherriesSpotlight />
+      <Promises />
+      <BrandStory />
       <Newsletter />
     </>
   );

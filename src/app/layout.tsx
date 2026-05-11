@@ -5,6 +5,7 @@ import { AnnouncementBar } from "@/components/layout/AnnouncementBar";
 import { Navigation } from "@/components/layout/Navigation";
 import { Footer } from "@/components/layout/Footer";
 import { CartDrawer } from "@/components/cart/CartDrawer";
+import { CartHydration } from "@/components/cart/CartHydration";
 
 const fraunces = Fraunces({
   subsets: ["latin"],
@@ -44,6 +45,7 @@ export default function RootLayout({
         <main>{children}</main>
         <Footer />
         <CartDrawer />
+        <CartHydration />
       </body>
     </html>
   );

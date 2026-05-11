@@ -1,5 +1,3 @@
-export type ProductCategory = "bodys" | "camisetas";
-
 export interface ProductVariant {
   id: string;
   size: string;
@@ -10,15 +8,15 @@ export interface Product {
   id: string;
   slug: string;
   name: string;
-  category: ProductCategory;
-  categoryLabel: string;
+  /** Subtítulo descriptivo corto (ej. "Halter satinado", "Manga larga"). */
+  subtitle: string;
   price: number;
   compareAtPrice?: number;
   description: string;
   fabric?: string;
   images: {
     primary: string;
-    /** Optional alt shot. When absent, ProductCard uses a Ken Burns hover. */
+    /** Opcional: foto alternativa para hover. */
     secondary?: string;
     alt: string;
   };
@@ -26,7 +24,6 @@ export interface Product {
   variants: ProductVariant[];
   isNew?: boolean;
   isBestseller?: boolean;
-  editorial?: string;
 }
 
 export interface CartLine {

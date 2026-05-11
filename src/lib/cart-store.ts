@@ -57,7 +57,15 @@ export const useCart = create<CartState>()(
       subtotal: () =>
         get().lines.reduce((acc, l) => acc + l.price * l.quantity, 0),
     }),
-    { name: "valma-cart" },
+    {
+      name: "valma-cart",
+      // Persist ONLY the cart lines. Keeping isOpen out prevents the drawer
+      // auto-opening on a fresh visit.
+      partialize: (state) => ({ lines: state.lines }),
+      // Skip auto-rehydration so the first client render matches the server
+      // (both see lines=[]). We call rehydrate() manually after mount.
+      skipHydration: true,
+    },
   ),
 );
 

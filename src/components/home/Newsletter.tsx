@@ -10,7 +10,6 @@ export function Newsletter() {
     e.preventDefault();
     if (!email) return;
     setStatus("submitting");
-    // TODO: integrate provider (Klaviyo, Resend, ConvertKit) when chosen.
     setTimeout(() => {
       setStatus("ok");
       setEmail("");
@@ -19,17 +18,17 @@ export function Newsletter() {
 
   return (
     <section className="bg-bone/60 section-pad-tight">
-      <div className="container-page max-w-3xl text-center">
-        <p className="eyebrow text-chocolate/55">07 · Carta de Valma</p>
+      <div className="container-page max-w-2xl text-center">
+        <p className="eyebrow text-chocolate/55">Mantente cerca</p>
         <h2
-          className="font-display-italic text-[clamp(2rem,4.4vw,3.2rem)] leading-[1.15] mt-6"
-          style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 100, 'WONK' 1" }}
+          className="font-display text-[clamp(1.8rem,3.6vw,2.6rem)] leading-[1.2] mt-6 tracking-[-0.015em]"
+          style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 30" }}
         >
-          Una nota cuando algo nuevo nazca.
+          Te escribimos cuando algo nuevo nazca.
         </h2>
         <p className="text-[0.95rem] text-chocolate/70 mt-4 max-w-md mx-auto leading-relaxed">
-          Pre-acceso a colecciones, ediciones limitadas y notas editoriales.
-          Sin spam, sin frecuencia hostil.
+          Pre-acceso a colecciones nuevas, ediciones limitadas como Cherries y
+          alguna que otra carta cariñosa. Sin spam, palabra.
         </p>
 
         <form

@@ -1,40 +1,12 @@
 import Link from "next/link";
 
-const columns = [
-  {
-    title: "Tienda",
-    links: [
-      { href: "/shop", label: "Todo" },
-      { href: "/shop/bodys", label: "Bodys" },
-      { href: "/shop/camisetas", label: "Camisetas" },
-    ],
-  },
-  {
-    title: "Universo",
-    links: [
-      { href: "/about", label: "Sobre Valma" },
-      { href: "/edits/riviera", label: "El Edit Riviera" },
-      { href: "/sostenibilidad", label: "Materiales" },
-    ],
-  },
-  {
-    title: "Atención",
-    links: [
-      { href: "https://wa.me/573203903221", label: "WhatsApp" },
-      { href: "/envios", label: "Envíos" },
-      { href: "/cambios", label: "Cambios" },
-      { href: "/guia-tallas", label: "Guía de tallas" },
-    ],
-  },
-];
-
 export function Footer() {
   return (
-    <footer className="bg-espresso text-ivory mt-32">
+    <footer id="contacto" className="bg-espresso text-ivory mt-24">
       <div className="container-page section-pad">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 md:gap-8">
-          {/* Wordmark + manifesto */}
-          <div className="md:col-span-5 lg:col-span-6 max-w-md">
+          {/* Wordmark + tagline */}
+          <div className="md:col-span-6 max-w-md">
             <p
               className="font-display tracking-[0.46em] text-[clamp(2.4rem,4vw,3.6rem)] leading-none"
               style={{ fontVariationSettings: "'opsz' 144, 'SOFT' 30" }}
@@ -44,36 +16,43 @@ export function Footer() {
             <p
               className="font-display-italic mt-8 text-[clamp(1.25rem,1.6vw,1.55rem)] leading-[1.35] text-bone"
             >
-              Cinematic essentials.
-              <br />
-              Mediterranean ease.
+              Lo esencial, hecho bien.
             </p>
             <div className="hairline bg-ivory mt-10" />
-            <p className="text-[0.82rem] leading-[1.7] mt-8 text-bone/80 max-w-sm">
-              Diseñado en Bogotá. Confeccionado con casas independientes en
-              Medellín. Tejidos europeos certificados.
+            <p className="text-[0.88rem] leading-[1.7] mt-8 text-bone/80 max-w-sm">
+              Diseñado y confeccionado en Colombia. Tejidos seleccionados
+              uno a uno. Series cortas, atención al detalle.
             </p>
           </div>
 
-          {/* Link columns */}
-          <div className="md:col-span-7 lg:col-span-6 grid grid-cols-2 sm:grid-cols-3 gap-8">
-            {columns.map((col) => (
-              <div key={col.title}>
-                <p className="eyebrow text-bone/60">{col.title}</p>
-                <ul className="mt-5 flex flex-col gap-3">
-                  {col.links.map((l) => (
-                    <li key={l.href}>
-                      <Link
-                        href={l.href}
-                        className="text-[0.92rem] hover:text-champagne transition-colors duration-500"
-                      >
-                        {l.label}
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            ))}
+          {/* Atención + Pagos */}
+          <div className="md:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-10">
+            <div>
+              <p className="eyebrow text-bone/60">Atención</p>
+              <ul className="mt-5 flex flex-col gap-3 text-[0.94rem]">
+                <li>
+                  <a
+                    href="https://wa.me/573203903221"
+                    target="_blank"
+                    rel="noreferrer"
+                    className="hover:text-champagne transition-colors duration-500"
+                  >
+                    WhatsApp · +57 320 390 3221
+                  </a>
+                </li>
+                <li className="text-bone/75">Lun a Sáb · 9am — 7pm</li>
+                <li className="text-bone/75">Envíos en 2–5 días hábiles</li>
+              </ul>
+            </div>
+            <div>
+              <p className="eyebrow text-bone/60">Pagos & Envíos</p>
+              <ul className="mt-5 flex flex-col gap-3 text-[0.94rem] text-bone/85">
+                <li>Envío gratis desde $400.000</li>
+                <li>Pago contraentrega</li>
+                <li>Transferencia bancaria</li>
+                <li>Tarjeta débito y crédito</li>
+              </ul>
+            </div>
           </div>
         </div>
 

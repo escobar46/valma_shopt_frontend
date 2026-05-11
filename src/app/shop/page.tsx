@@ -40,7 +40,7 @@ export default function ShopPage() {
 
       <section className="bg-ivory section-pad-tight">
         <div className="container-page">
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-3 gap-y-12 md:gap-x-5 md:gap-y-16">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-4 gap-y-10 md:gap-x-5 md:gap-y-16">
             {products.map((p, i) => (
               <ProductCard key={p.id} product={p} priority={i < 4} />
             ))}

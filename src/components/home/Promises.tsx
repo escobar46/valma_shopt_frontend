@@ -24,23 +24,23 @@ const promises = [
 export function Promises() {
   return (
     <section className="bg-ivory border-y border-chocolate/12">
-      <div className="container-page py-12 lg:py-16">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-x-6 gap-y-10">
+      <div className="container-page py-10 sm:py-12 lg:py-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-7 sm:gap-y-10">
           {promises.map((p) => {
             const Icon = p.icon;
             return (
-              <div key={p.title} className="flex items-start gap-4">
-                <div className="shrink-0 mt-1 text-wine">
+              <div key={p.title} className="flex items-center sm:items-start gap-4">
+                <div className="shrink-0 sm:mt-1 text-wine">
                   <Icon />
                 </div>
                 <div>
                   <p
-                    className="font-display text-[1.1rem] leading-tight tracking-[-0.01em]"
+                    className="font-display text-[1.05rem] sm:text-[1.1rem] leading-tight tracking-[-0.01em]"
                     style={{ fontVariationSettings: "'opsz' 36, 'SOFT' 30" }}
                   >
                     {p.title}
                   </p>
-                  <p className="text-[0.84rem] text-chocolate/65 mt-1.5 leading-snug">
+                  <p className="text-[0.82rem] sm:text-[0.84rem] text-chocolate/65 mt-1 sm:mt-1.5 leading-snug">
                     {p.detail}
                   </p>
                 </div>

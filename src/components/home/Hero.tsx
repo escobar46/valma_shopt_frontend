@@ -116,7 +116,7 @@ export function Hero() {
                   Body Alma
                 </p>
                 <p className="text-[0.74rem] sm:text-[0.8rem] text-ivory/75 mt-0.5 sm:mt-1">
-                  Desde $159.000 · 7 colores
+                  Desde $50.000 · 7 colores
                 </p>
               </div>
             </div>

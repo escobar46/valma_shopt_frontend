@@ -1,0 +1,314 @@
+{
+  "_documentacion": {
+    "como_usar": "Este archivo es el catálogo editable de Valma. Cambia precios, nombres, colores e imágenes aquí — no necesitas tocar código. Después de guardar, recarga el sitio (npm run dev se refresca solo).",
+    "campos": {
+      "id": "Identificador interno único. No lo cambies si el producto ya está publicado (rompe el carrito de quien lo tenga guardado).",
+      "slug": "Texto que aparece en la URL: /product/<slug>. Solo minúsculas, números y guiones.",
+      "name": "Nombre visible para el cliente (ej: 'Body Aurora').",
+      "subtitle": "Línea corta debajo del nombre (ej: 'Halter satinado con sol dorado').",
+      "price": "Precio en pesos colombianos, sin puntos ni símbolos. Ej: 55000 = $55.000.",
+      "compareAtPrice": "OPCIONAL. Precio anterior tachado para mostrar descuento. Borra el campo si no aplica.",
+      "description": "Descripción larga que sale en la ficha del producto (PDP).",
+      "fabric": "Composición textil. Ej: '94% algodón pima · 6% elastano'.",
+      "images": "Objeto con las fotos del producto. Mira la sección 'images_explicacion' abajo.",
+      "images_explicacion": {
+        "regla": "Agrega claves image_1, image_2, image_3, ... y aparecerán automáticamente en la galería del producto (en ese orden numérico, sin importar el orden en el archivo).",
+        "image_1": "PORTADA. Es la que se ve en la home, en la tienda y como foto principal en el PDP. Obligatoria.",
+        "image_2_o_mas": "Aparecen como thumbnails en el PDP. La image_2 además se usa como hover en las tarjetas de la tienda.",
+        "alt": "Descripción de la foto en texto (accesibilidad + SEO). Obligatoria.",
+        "ejemplo_para_agregar_una_tercera_foto": {
+          "image_1": "/images/products/body-aurora.jpg",
+          "image_2": "/images/products/body-aurora-detalle.jpg",
+          "image_3": "/images/products/body-aurora-espalda.jpg",
+          "alt": "Body Aurora halter satinado"
+        }
+      },
+      "colors": "Lista de colores. Cada uno es { name: 'Nombre visible', hex: '#RRGGBB' }. Agrega o quita para que aparezca/desaparezca el swatch.",
+      "variants": "Tallas y stock. Si stock = 0, la talla aparece tachada y no se puede comprar. id debe ser único por variante.",
+      "isNew": "OPCIONAL. true = muestra etiqueta 'Nuevo' en la foto y entra a la sección de novedades de la home.",
+      "isBestseller": "OPCIONAL. true = entra al carrusel 'Más vendidos' en la home."
+    }
+  },
+  "products": [
+    {
+      "id": "p-aurora",
+      "slug": "body-aurora",
+      "name": "Body Aurora",
+      "subtitle": "Halter satinado con sol dorado",
+      "price": 58000,
+      "description": "Body halter en satín mate con detalle de sol dorado en el cuello. Espalda descubierta, broches forrados. La pieza para cuando quieres llamar la atención sin tener que esforzarte.",
+      "fabric": "90% poliéster · 10% elastano",
+      "images": {
+        "image_1": "/images/products/body-aurora.jpg",
+        "alt": "Body Aurora halter satinado"
+      },
+      "colors": [
+        { "name": "Ivory", "hex": "#F4EFE8" },
+        { "name": "Rosa", "hex": "#F2C7C9" }
+      ],
+      "variants": [
+        { "id": "p-aurora-xs", "size": "XS", "stock": 8 },
+        { "id": "p-aurora-s", "size": "S", "stock": 12 },
+        { "id": "p-aurora-m", "size": "M", "stock": 10 },
+        { "id": "p-aurora-l", "size": "L", "stock": 6 }
+      ],
+      "isNew": true
+    },
+    {
+      "id": "p-lazo",
+      "slug": "body-lazo",
+      "name": "Body Lazo",
+      "subtitle": "Hombro asimétrico con lazo",
+      "price": 56000,
+      "description": "Body de un hombro con detalle anudado. Caída fluida, espalda en U. Funciona con jean ancho, lino o falda midi.",
+      "fabric": "92% poliamida · 8% elastano",
+      "images": {
+        "image_1": "/images/products/body-lazo.jpg",
+        "alt": "Body Lazo asimétrico con detalle anudado"
+      },
+      "colors": [
+        { "name": "Rojo", "hex": "#B83A2A" },
+        { "name": "Ivory", "hex": "#F4EFE8" },
+        { "name": "Ink", "hex": "#0E0E0D" },
+        { "name": "Wine", "hex": "#5A1F2A" },
+        { "name": "Chocolate", "hex": "#3B2A20" }
+      ],
+      "variants": [
+        { "id": "p-lazo-xs", "size": "XS", "stock": 6 },
+        { "id": "p-lazo-s", "size": "S", "stock": 14 },
+        { "id": "p-lazo-m", "size": "M", "stock": 11 },
+        { "id": "p-lazo-l", "size": "L", "stock": 5 }
+      ],
+      "isBestseller": true
+    },
+    {
+      "id": "p-alma",
+      "slug": "body-alma",
+      "name": "Body Alma",
+      "subtitle": "Cuello redondo, manga corta",
+      "price": 50000,
+      "description": "El body esencial. Cuello redondo, manga corta, caída segunda piel. Ocho colores que viven en tu armario por años.",
+      "fabric": "94% algodón pima · 6% elastano",
+      "images": {
+        "image_1": "/images/products/body-alma.jpg",
+        "alt": "Body Alma cuello redondo en ocho colores"
+      },
+      "colors": [
+        { "name": "Ivory", "hex": "#F4EFE8" },
+        { "name": "Chocolate", "hex": "#3B2A20" },
+        { "name": "Rosa", "hex": "#F2C7C9" },
+        { "name": "Wine", "hex": "#5A1F2A" },
+        { "name": "Blanco", "hex": "#FFFFFF" },
+        { "name": "Rojo", "hex": "#B83A2A" },
+        { "name": "Ink", "hex": "#0E0E0D" }
+      ],
+      "variants": [
+        { "id": "p-alma-xs", "size": "XS", "stock": 12 },
+        { "id": "p-alma-s", "size": "S", "stock": 22 },
+        { "id": "p-alma-m", "size": "M", "stock": 18 },
+        { "id": "p-alma-l", "size": "L", "stock": 10 }
+      ],
+      "isBestseller": true
+    },
+    {
+      "id": "p-brisa",
+      "slug": "body-brisa",
+      "name": "Body Brisa",
+      "subtitle": "Tank cuello alto",
+      "price": 52000,
+      "description": "Body sin mangas con cuello alto redondo. Tela canalé que se ajusta sin apretar. Para días de sol o capa base.",
+      "fabric": "92% algodón · 8% elastano",
+      "images": {
+        "image_1": "/images/products/body-brisa.jpg",
+        "alt": "Body Brisa tank cuello alto en seis colores"
+      },
+      "colors": [
+        { "name": "Chocolate", "hex": "#3B2A20" },
+        { "name": "Blanco", "hex": "#FFFFFF" },
+        { "name": "Rojo", "hex": "#B83A2A" },
+        { "name": "Wine", "hex": "#5A1F2A" },
+        { "name": "Ink", "hex": "#0E0E0D" },
+        { "name": "Ivory", "hex": "#F4EFE8" }
+      ],
+      "variants": [
+        { "id": "p-brisa-xs", "size": "XS", "stock": 9 },
+        { "id": "p-brisa-s", "size": "S", "stock": 15 },
+        { "id": "p-brisa-m", "size": "M", "stock": 12 },
+        { "id": "p-brisa-l", "size": "L", "stock": 6 }
+      ],
+      "isBestseller": true
+    },
+    {
+      "id": "p-vela",
+      "slug": "body-vela",
+      "name": "Body Vela",
+      "subtitle": "Cuello cuadrado profundo",
+      "price": 55000,
+      "description": "Escote cuadrado profundo, manga sisa, espalda con tirantes anchos. La pieza que da a una falda blanca su mejor versión.",
+      "fabric": "88% poliamida · 12% elastano",
+      "images": {
+        "image_1": "/images/products/body-vela.jpg",
+        "alt": "Body Vela cuello cuadrado en cuatro tonos cálidos"
+      },
+      "colors": [
+        { "name": "Wine", "hex": "#5A1F2A" },
+        { "name": "Nude", "hex": "#E8C9B5" },
+        { "name": "Chocolate", "hex": "#3B2A20" },
+        { "name": "Espresso", "hex": "#20160F" }
+      ],
+      "variants": [
+        { "id": "p-vela-xs", "size": "XS", "stock": 7 },
+        { "id": "p-vela-s", "size": "S", "stock": 11 },
+        { "id": "p-vela-m", "size": "M", "stock": 9 },
+        { "id": "p-vela-l", "size": "L", "stock": 4 }
+      ],
+      "isNew": true
+    },
+    {
+      "id": "p-petalo",
+      "slug": "body-petalo",
+      "name": "Body Pétalo",
+      "subtitle": "Manga larga en pasteles",
+      "price": 59000,
+      "description": "Body de manga larga cuello redondo en cuatro tonos suaves. Tela modal con caída ligera. La que repones cada temporada.",
+      "fabric": "88% modal · 12% elastano",
+      "images": {
+        "image_1": "/images/products/body-petalo.jpg",
+        "alt": "Body Pétalo manga larga en cuatro pasteles"
+      },
+      "colors": [
+        { "name": "Azul", "hex": "#A9C7DC" },
+        { "name": "Rosa", "hex": "#E89AAB" },
+        { "name": "Ivory", "hex": "#F4EFE8" },
+        { "name": "Mantequilla", "hex": "#F4E4A1" }
+      ],
+      "variants": [
+        { "id": "p-petalo-xs", "size": "XS", "stock": 6 },
+        { "id": "p-petalo-s", "size": "S", "stock": 10 },
+        { "id": "p-petalo-m", "size": "M", "stock": 8 },
+        { "id": "p-petalo-l", "size": "L", "stock": 4 }
+      ],
+      "isNew": true
+    },
+    {
+      "id": "p-calma",
+      "slug": "body-calma",
+      "name": "Body Calma",
+      "subtitle": "Manga larga, paleta neutra",
+      "price": 54000,
+      "description": "Manga larga cuello redondo en cinco neutros. La pieza base para capas: bajo blazer, bajo cardigan, sola con jean.",
+      "fabric": "88% modal · 12% elastano",
+      "images": {
+        "image_1": "/images/products/body-calma.jpg",
+        "alt": "Body Calma manga larga en cinco tonos neutros"
+      },
+      "colors": [
+        { "name": "Azul", "hex": "#A9C7DC" },
+        { "name": "Mantequilla", "hex": "#F4E4A1" },
+        { "name": "Chocolate", "hex": "#3B2A20" },
+        { "name": "Menta", "hex": "#C7DCC2" },
+        { "name": "Nude", "hex": "#E8C9B5" }
+      ],
+      "variants": [
+        { "id": "p-calma-xs", "size": "XS", "stock": 8 },
+        { "id": "p-calma-s", "size": "S", "stock": 12 },
+        { "id": "p-calma-m", "size": "M", "stock": 10 },
+        { "id": "p-calma-l", "size": "L", "stock": 5 }
+      ]
+    },
+    {
+      "id": "p-iris",
+      "slug": "top-iris",
+      "name": "Top Iris",
+      "subtitle": "Strapless con peplum",
+      "price": 85000,
+      "description": "Top strapless con vuelo peplum. Estructura interna que sostiene sin necesidad de sostén. La pieza para cócteles de fin de tarde.",
+      "fabric": "100% algodón estructurado · forro interno",
+      "images": {
+        "image_1": "/images/products/top-iris.jpg",
+        "alt": "Top Iris strapless con peplum azul cielo"
+      },
+      "colors": [{ "name": "Cielo", "hex": "#A9C7DC" }],
+      "variants": [
+        { "id": "p-iris-xs", "size": "XS", "stock": 4 },
+        { "id": "p-iris-s", "size": "S", "stock": 8 },
+        { "id": "p-iris-m", "size": "M", "stock": 6 },
+        { "id": "p-iris-l", "size": "L", "stock": 3 }
+      ],
+      "isNew": true
+    },
+    {
+      "id": "p-helena",
+      "slug": "top-helena",
+      "name": "Top Helena",
+      "subtitle": "Un hombro asimétrico",
+      "price": 169000,
+      "description": "Top asimétrico de un solo hombro con frunce en el escote. Caída envolvente sobre la cadera. Combina con pantalón ancho o falda.",
+      "fabric": "92% modal · 8% elastano",
+      "images": {
+        "image_1": "/images/products/top-helena.jpg",
+        "alt": "Top Helena asimétrico lila"
+      },
+      "colors": [{ "name": "Lila", "hex": "#B8AED8" }],
+      "variants": [
+        { "id": "p-helena-xs", "size": "XS", "stock": 5 },
+        { "id": "p-helena-s", "size": "S", "stock": 9 },
+        { "id": "p-helena-m", "size": "M", "stock": 7 },
+        { "id": "p-helena-l", "size": "L", "stock": 3 }
+      ],
+      "isBestseller": true
+    },
+    {
+      "id": "p-esencial",
+      "slug": "camiseta-esencial",
+      "name": "Camiseta Esencial",
+      "subtitle": "El básico bien hecho",
+      "price": 89000,
+      "description": "Camiseta cuello redondo manga corta en jersey peinado. Caída ceñida suave, dobladillo limpio. Cinco colores que vuelven todo el año.",
+      "fabric": "100% algodón orgánico peinado",
+      "images": {
+        "image_1": "/images/products/camiseta-esencial.jpg",
+        "alt": "Camisetas Esenciales en cinco colores"
+      },
+      "colors": [
+        { "name": "Wine", "hex": "#5A1F2A" },
+        { "name": "Ivory", "hex": "#F4EFE8" },
+        { "name": "Chocolate", "hex": "#3B2A20" },
+        { "name": "Rojo", "hex": "#B83A2A" }
+      ],
+      "variants": [
+        { "id": "p-esencial-xs", "size": "XS", "stock": 14 },
+        { "id": "p-esencial-s", "size": "S", "stock": 22 },
+        { "id": "p-esencial-m", "size": "M", "stock": 18 },
+        { "id": "p-esencial-l", "size": "L", "stock": 11 }
+      ],
+      "isBestseller": true
+    },
+    {
+      "id": "p-cherries",
+      "slug": "camiseta-cherries",
+      "name": "Camiseta Cherries",
+      "subtitle": "Edición limitada · estampa",
+      "price": 59000,
+      "description": "Camiseta con estampa Cherries — fruta dulce, tipografía vintage, guiño juguetón. Edición limitada de la temporada.",
+      "fabric": "100% algodón orgánico",
+      "images": {
+        "image_1": "/images/products/camiseta-cherries.jpg",
+        "image_2": "/images/products/camiseta-cherries-detail.jpg",
+        "alt": "Camiseta Cherries estampada en tres colores"
+      },
+      "colors": [
+        { "name": "Ink", "hex": "#0E0E0D" },
+        { "name": "Bone", "hex": "#E8DFD3" },
+        { "name": "Blanco", "hex": "#FFFFFF" }
+      ],
+      "variants": [
+        { "id": "p-cherries-xs", "size": "XS", "stock": 5 },
+        { "id": "p-cherries-s", "size": "S", "stock": 8 },
+        { "id": "p-cherries-m", "size": "M", "stock": 6 },
+        { "id": "p-cherries-l", "size": "L", "stock": 3 }
+      ],
+      "isNew": true
+    }
+  ]
+}

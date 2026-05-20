@@ -13,7 +13,8 @@ interface Props {
 
 export function ProductCard({ product, priority = false }: Props) {
   const add = useCart((s) => s.add);
-  const hasAlt = Boolean(product.images.secondary);
+  const [primary, secondary] = product.images.gallery;
+  const hasAlt = Boolean(secondary);
   const visibleSwatches = product.colors.slice(0, 4);
   const extraSwatches = product.colors.length - visibleSwatches.length;
 
@@ -25,7 +26,7 @@ export function ProductCard({ product, priority = false }: Props) {
       slug: product.slug,
       name: product.name,
       price: product.price,
-      image: product.images.primary,
+      image: primary,
       size: variant.size,
       color: product.colors[0]?.name ?? "",
       quantity: 1,
@@ -39,7 +40,7 @@ export function ProductCard({ product, priority = false }: Props) {
         className="relative block aspect-[4/5] bg-bone overflow-hidden isolate"
       >
         <Image
-          src={product.images.primary}
+          src={primary}
           alt={product.images.alt}
           fill
           sizes="(min-width: 1280px) 24vw, (min-width: 768px) 33vw, 50vw"
@@ -49,7 +50,7 @@ export function ProductCard({ product, priority = false }: Props) {
 
         {hasAlt && (
           <Image
-            src={product.images.secondary!}
+            src={secondary}
             alt=""
             fill
             sizes="(min-width: 1280px) 24vw, (min-width: 768px) 33vw, 50vw"

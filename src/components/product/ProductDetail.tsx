@@ -20,9 +20,7 @@ export function ProductDetail({ product }: Props) {
   const [quantity, setQuantity] = useState(1);
   const [imgIndex, setImgIndex] = useState(0);
 
-  const images = [product.images.primary, product.images.secondary].filter(
-    Boolean,
-  ) as string[];
+  const images = product.images.gallery;
 
   const currentVariant = product.variants.find((v) => v.size === selectedSize);
   const outOfStock = !currentVariant || currentVariant.stock === 0;
@@ -34,7 +32,7 @@ export function ProductDetail({ product }: Props) {
       slug: product.slug,
       name: product.name,
       price: product.price,
-      image: product.images.primary,
+      image: images[0],
       size: selectedSize,
       color: selectedColor.name,
       quantity,
@@ -71,7 +69,7 @@ export function ProductDetail({ product }: Props) {
           <div className="lg:col-span-7">
             <div className="relative aspect-[4/5] bg-bone overflow-hidden">
               <Image
-                src={images[imgIndex] ?? product.images.primary}
+                src={images[imgIndex] ?? images[0]}
                 alt={product.images.alt}
                 fill
                 priority

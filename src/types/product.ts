@@ -14,10 +14,13 @@ export interface Product {
   compareAtPrice?: number;
   description: string;
   fabric?: string;
+  /**
+   * Galería ordenada: gallery[0] es la portada, gallery[1] el hover en
+   * tarjetas, y todas se renderizan como thumbnails en el PDP. Se construye
+   * en el loader desde las claves image_1, image_2, ... del catalog.json.
+   */
   images: {
-    primary: string;
-    /** Opcional: foto alternativa para hover. */
-    secondary?: string;
+    gallery: string[];
     alt: string;
   };
   colors: { name: string; hex: string }[];
